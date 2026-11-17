@@ -1,0 +1,211 @@
+:root {
+  --bg: #0e0b0a;
+  --paper: #1a1513;
+  --bone: #ede3d3;
+  --muted: #a99d8c;
+  --blood: #c4302b;
+  --line: #3a302b;
+  --display: 'Rye', Georgia, serif;
+  --type: 'Special Elite', 'Courier New', monospace;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--bone);
+  font-family: var(--type);
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 48px;
+}
+
+.ticket {
+  width: 100%;
+  max-width: 440px;
+  border: 3px double var(--blood);
+  background: var(--paper);
+  padding: 20px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.title {
+  margin: -8px 0 0;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--blood);
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.status {
+  font-family: var(--display);
+  letter-spacing: 1px;
+  font-size: 13px;
+  padding: 2px 8px;
+  border: 2px solid var(--blood);
+  color: var(--blood);
+}
+
+blockquote {
+  margin: 0;
+  border: 1.5px solid var(--bone);
+  padding: 12px 14px;
+  font-size: 17px;
+  transition: opacity .6s;
+}
+
+.enigma p { margin: 0 0 10px; }
+.enigma .placeholder { color: var(--muted); font-style: italic; }
+
+.digits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.digits input {
+  width: 100%;
+  height: 72px;
+  background: var(--bg);
+  border: 2px solid var(--line);
+  color: var(--bone);
+  font-family: var(--display);
+  font-size: 36px;
+  text-align: center;
+  caret-color: var(--blood);
+  outline: none;
+}
+
+.digits input:focus { border-color: var(--blood); }
+.digits input:disabled { opacity: .35; }
+
+.lock button {
+  margin-top: 14px;
+  width: 100%;
+  min-height: 52px;
+  background: var(--blood);
+  color: var(--bone);
+  border: 0;
+  font-family: var(--display);
+  font-size: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.lock button:disabled { opacity: .5; cursor: wait; }
+
+.msg { min-height: 1.5em; margin: 12px 0 0; font-size: 14px; }
+.msg.error { color: var(--blood); }
+.fails { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+
+.solved { text-align: center; }
+
+.stamp {
+  display: inline-block;
+  margin: 8px 0 18px;
+  padding: 8px 18px;
+  border: 4px solid var(--muted);
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 34px;
+  transform: rotate(-8deg);
+}
+
+.solved p { margin: 0 0 8px; }
+.confirm { font-size: 14px; color: var(--muted); }
+.confirm strong { color: var(--bone); letter-spacing: 2px; }
+
+footer {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  border-top: 1px dotted var(--line);
+  padding-top: 14px;
+}
+
+/* Resuelta */
+.is-solved .status { border-color: var(--muted); color: var(--muted); }
+.is-solved blockquote { text-decoration: line-through; opacity: .45; }
+.is-solved .ticket { border-color: var(--muted); }
+
+/* Error */
+@media (prefers-reduced-motion: no-preference) {
+  .shake { animation: shake .45s; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+  }
+  .flicker { animation: flicker .6s; }
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    15% { opacity: .2; }
+    30% { opacity: 1; }
+    45% { opacity: .1; }
+    60% { opacity: 1; }
+  }
+  .stamp-in { animation: stamp .5s ease-out; }
+  @keyframes stamp {
+    from { transform: rotate(-8deg) scale(2.2); opacity: 0; }
+    to { transform: rotate(-8deg) scale(1); opacity: 1; }
+  }
+}
+
+/* Señuelo / pasaje cerrado */
+.closed {
+  align-items: center;
+  text-align: center;
+  margin-top: 18vh;
+}
+.closed h1 { font-family: var(--display); font-weight: 400; color: var(--blood); font-size: 34px; margin: 0 0 10px; }
+.closed p { color: var(--muted); margin: 0; }
+
+/* Prova II: la peça cremada */
+.resistor { display: flex; align-items: center; justify-content: center; margin: 22px 0; }
+.resistor .lead { width: 46px; height: 3px; background: #8c8c8c; }
+.resistor .cos { display: flex; align-items: stretch; gap: 9px; height: 48px; padding: 0 18px; background: #d9c39a; border-radius: 20px; }
+.resistor i { display: block; width: 11px; }
+.resistor b { display: block; width: 14px; }
+
+/* Prova III: el missatge */
+.t9 { word-spacing: 6px; line-height: 1.9; font-size: 17px; letter-spacing: 1px; }
+
+/* Prova IV: només números */
+.ticket { position: relative; z-index: 1; }
+.xifres-camp { position: relative; height: 280px; overflow: hidden; }
+.xifres-camp span, .xifres-fons span { position: absolute; line-height: 1; font-family: var(--type); color: var(--bone); }
+.xifres-camp span.r, .xifres-fons span.r { color: var(--blood); }
+.xifres-fons { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.xifres-fons span { opacity: .18; }

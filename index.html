@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gran reobertura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/haunt.css">
+</head>
+<body>
+
+<main class="ticket closed" data-closed>
+  <h1>El passatge està tancat.</h1>
+  <p data-closed-msg>Només s'hi entra amb invitació.</p>
+</main>
+
+<main class="ticket" data-app hidden>
+  <header class="top"><span data-top>Prova</span><span>Nº 000666</span></header>
+  <h1 class="title" data-title></h1>
+
+  <section class="comment">
+    <div class="label">Comentari associat <span class="status" data-status>ACTIU</span></div>
+    <blockquote data-comment></blockquote>
+  </section>
+
+  <section class="enigma">
+    <div class="label">L'enigma</div>
+    <div data-enigma></div>
+  </section>
+
+  <form class="lock" data-lock autocomplete="off">
+    <div class="label">Codi de desactivació</div>
+    <div class="digits">
+      <input inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Xifra 1">
+      <input inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Xifra 2">
+      <input inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Xifra 3">
+      <input inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Xifra 4">
+    </div>
+    <button type="submit">Desactivar</button>
+    <p class="msg" data-msg role="status" aria-live="polite"></p>
+    <p class="fails" data-left></p>
+  </form>
+
+  <section class="solved" data-solved hidden>
+    <div class="stamp">DESACTIVAT</div>
+    <p>Aquest comentari ja no s'afegirà a la reserva.</p>
+  </section>
+
+  <footer>Aquesta pàgina no porta enlloc més.</footer>
+</main>
+
+<script src="assets/haunt.js"></script>
+</body>
+</html>
